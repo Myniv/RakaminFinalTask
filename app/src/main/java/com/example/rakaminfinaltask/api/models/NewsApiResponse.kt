@@ -1,4 +1,4 @@
-package com.example.rakaminfinaltask.api.Models
+package com.example.rakaminfinaltask.api.models
 
 data class NewsApiResponse(
     var status: String,

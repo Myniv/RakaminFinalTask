@@ -10,8 +10,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.rakaminfinaltask.R
-import com.example.rakaminfinaltask.api.Models.NewHeadLine
-import org.w3c.dom.Text
+import com.example.rakaminfinaltask.api.models.NewHeadLine
 
 
 class NewsAdapter(private val onClick: (NewHeadLine) -> Unit) :

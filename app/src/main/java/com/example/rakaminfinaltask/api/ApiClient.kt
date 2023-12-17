@@ -17,4 +17,5 @@ object ApiClient {
     val newsService: NewsService by lazy {
         retrofit.create(NewsService::class.java)
     }
+
 }
