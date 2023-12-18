@@ -19,29 +19,40 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity() {
     private lateinit var swipeRefresh: SwipeRefreshLayout
     private lateinit var recyclerView: RecyclerView
+    private lateinit var recyclerView_trending: RecyclerView
     private lateinit var call: Call<NewsApiResponse>
+    private lateinit var callTrending: Call<NewsApiResponse>
     private lateinit var newsAdapter: NewsAdapter
+    private lateinit var newsAdapterTrending: NewsAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         swipeRefresh = findViewById(R.id.refresh_layout)
         recyclerView = findViewById(R.id.recycle_news_list)
+        recyclerView_trending = findViewById(R.id.recycle_news_trending)
+
 
         newsAdapter = NewsAdapter { news -> newsOnClick(news)  }
         recyclerView.adapter = newsAdapter
         recyclerView.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
 
+        newsAdapterTrending = NewsAdapter { news -> newsOnClick(news)  }
+        recyclerView_trending.adapter = newsAdapterTrending
+        recyclerView_trending.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
+
         swipeRefresh.setOnRefreshListener {
-            getData()
+            getDataNewsListTrending()
+            getDataNewsList()
         }
-        getData()
+        getDataNewsListTrending()
+        getDataNewsList()
     }
 
     private fun newsOnClick(news : NewHeadLine){
         Toast.makeText(applicationContext, news.description, Toast.LENGTH_SHORT).show()
     }
 
-    private fun getData(){
+    private fun getDataNewsList(){
         swipeRefresh.isRefreshing = true
 
         call = ApiClient.newsService.getAll()
@@ -53,6 +64,32 @@ class MainActivity : AppCompatActivity() {
                 if(response.isSuccessful){
                     newsAdapter.submitList(response.body()?.articles)
                     newsAdapter.notifyDataSetChanged()
+                }
+            }
+
+
+            override fun onFailure(call: Call<NewsApiResponse>, t: Throwable) {
+                swipeRefresh.isRefreshing = false
+                Toast.makeText(applicationContext, t.localizedMessage, Toast.LENGTH_SHORT).show()
+            }
+
+        })
+
+
+    }
+
+    private fun getDataNewsListTrending(){
+        swipeRefresh.isRefreshing = true
+
+        callTrending = ApiClient.topHeadlineService.getAll()
+        callTrending.enqueue(object : Callback<NewsApiResponse> {
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onResponse(call: Call<NewsApiResponse>, response: Response<NewsApiResponse>
+            ) {
+                swipeRefresh.isRefreshing = false
+                if(response.isSuccessful){
+                    newsAdapterTrending.submitList(response.body()?.articles)
+                    newsAdapterTrending.notifyDataSetChanged()
                 }
             }
 

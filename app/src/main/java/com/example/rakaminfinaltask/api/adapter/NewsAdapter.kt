@@ -21,6 +21,10 @@ class NewsAdapter(private val onClick: (NewHeadLine) -> Unit) :
             val txtTitle : TextView = itemView.findViewById(R.id.text_title)
             val txtDesc : TextView = itemView.findViewById(R.id.text_description)
 
+//            val imgHeadLineTrending : ImageView = itemView.findViewById(R.id.img_headline_trending)
+//            val txtTitleTrending : TextView = itemView.findViewById(R.id.text_title_trending)
+//            val txtDescTrending : TextView = itemView.findViewById(R.id.text_description_trending)
+
             var currentNews: NewHeadLine? = null
 
         init {
@@ -37,7 +41,13 @@ class NewsAdapter(private val onClick: (NewHeadLine) -> Unit) :
             txtTitle.text = news.title
             txtDesc.text = news.description
 
+//            txtTitleTrending.text = news.title
+//            txtDescTrending.text = news.description
+
             Glide.with(itemView).load(news.urlToImage).centerCrop().into(imgHeadLine)
+//            Glide.with(itemView).load(news.urlToImage).centerCrop().into(imgHeadLineTrending)
+
+
         }
 
     }
