@@ -17,9 +17,11 @@ class NewsAdapter(private val onClick: (NewHeadLine) -> Unit) :
     ListAdapter<NewHeadLine, NewsAdapter.NewsViewHolder>(NewsCallBack){
     class NewsViewHolder(itemView: View, val onClick: (NewHeadLine) -> Unit) :
         RecyclerView.ViewHolder(itemView){
-            val imgHeadLine : ImageView = itemView.findViewById(R.id.img_headline)
-            val txtTitle : TextView = itemView.findViewById(R.id.text_title)
-            val txtDesc : TextView = itemView.findViewById(R.id.text_description)
+            val imgHeadLine : ImageView = itemView.findViewById(R.id.img_headline_news_list)
+            val txtTitle : TextView = itemView.findViewById(R.id.text_title_news_list)
+//            val txtDesc : TextView = itemView.findViewById(R.id.text_description)
+            val txtAuthor : TextView = itemView.findViewById(R.id.text_author_news_list)
+            val txtDate : TextView  =itemView.findViewById(R.id.text_date_news_list)
 
 //            val imgHeadLineTrending : ImageView = itemView.findViewById(R.id.img_headline_trending)
 //            val txtTitleTrending : TextView = itemView.findViewById(R.id.text_title_trending)
@@ -39,7 +41,9 @@ class NewsAdapter(private val onClick: (NewHeadLine) -> Unit) :
             currentNews = news
 
             txtTitle.text = news.title
-            txtDesc.text = news.description
+//            txtDesc.text = news.description
+            txtAuthor.text = news.author
+            txtDate.text = news.publishedAt
 
 //            txtTitleTrending.text = news.title
 //            txtDescTrending.text = news.description

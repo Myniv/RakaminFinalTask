@@ -36,15 +36,15 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = newsAdapter
         recyclerView.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
 
-        newsAdapterTrending = NewsAdapter { news -> newsOnClick(news)  }
-        recyclerView_trending.adapter = newsAdapterTrending
-        recyclerView_trending.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
+//        newsAdapterTrending = NewsAdapter { news -> newsOnClick(news)  }
+//        recyclerView_trending.adapter = newsAdapterTrending
+//        recyclerView_trending.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
 
         swipeRefresh.setOnRefreshListener {
-            getDataNewsListTrending()
+//            getDataNewsListTrending()
             getDataNewsList()
         }
-        getDataNewsListTrending()
+//        getDataNewsListTrending()
         getDataNewsList()
     }
 
