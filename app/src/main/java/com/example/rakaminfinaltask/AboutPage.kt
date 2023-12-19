@@ -3,9 +3,9 @@ package com.example.rakaminfinaltask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class AboutPageMe : AppCompatActivity() {
+class AboutPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.about_page)
+        setContentView(R.layout.activity_about_page)
     }
 }

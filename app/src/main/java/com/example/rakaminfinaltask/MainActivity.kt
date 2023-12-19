@@ -112,7 +112,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btn_profile -> {
-                val moveIntent = Intent(this@MainActivity, AboutPageMe::class.java)
+                val moveIntent = Intent(this@MainActivity, AboutPage::class.java)
                 startActivity(moveIntent)
             }
         }

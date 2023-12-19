@@ -19,7 +19,7 @@
             android:name=".NavBar"
             android:exported="false" />
         <activity
-            android:name=".AboutPageMe"
+            android:name=".AboutPage"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
