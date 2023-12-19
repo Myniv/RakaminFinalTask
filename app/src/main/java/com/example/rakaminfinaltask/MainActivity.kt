@@ -1,8 +1,11 @@
 package com.example.rakaminfinaltask
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 //import android.telecom.Call
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +20,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var swipeRefresh: SwipeRefreshLayout
     private lateinit var recyclerView_list: RecyclerView
     private lateinit var recyclerView_trending: RecyclerView
@@ -31,6 +34,10 @@ class MainActivity : AppCompatActivity() {
         swipeRefresh = findViewById(R.id.refresh_layout)
         recyclerView_list = findViewById(R.id.recycle_news_list)
         recyclerView_trending = findViewById(R.id.recycle_news_trending)
+
+        val button : Button = findViewById(R.id.btn_profile)
+        button.setOnClickListener(this)
+
 
 
         newsAdapter = NewsAdapter { news -> newsOnClick(news)  }
@@ -101,4 +108,14 @@ class MainActivity : AppCompatActivity() {
 
         })
     }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.btn_profile -> {
+                val moveIntent = Intent(this@MainActivity, AboutPageMe::class.java)
+                startActivity(moveIntent)
+            }
+        }
+    }
 }
+

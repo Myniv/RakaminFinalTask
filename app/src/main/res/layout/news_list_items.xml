@@ -15,6 +15,7 @@
         android:weightSum="3"
         android:layout_margin="6dp">
 
+
         <ImageView
             android:id="@+id/img_headline_news_list"
             android:layout_weight="1"
