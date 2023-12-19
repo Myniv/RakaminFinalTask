@@ -5,8 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-//import android.telecom.Call
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -35,8 +34,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         recyclerViewList = findViewById(R.id.recycle_news_list)
         recyclerViewTrending = findViewById(R.id.recycle_news_trending)
 
-        val button : Button = findViewById(R.id.btn_profile)
-        button.setOnClickListener(this)
+        val btnProfile : ImageButton = findViewById(R.id.btn_profile_inmain)
+        btnProfile.setOnClickListener(this)
 
 
 
@@ -111,7 +110,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.btn_profile -> {
+            R.id.btn_profile_inmain -> {
                 val moveIntent = Intent(this@MainActivity, AboutPage::class.java)
                 startActivity(moveIntent)
             }

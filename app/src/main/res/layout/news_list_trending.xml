@@ -2,16 +2,16 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:cardElevation="8dp"
-    android:layout_margin="8dp"
+    android:layout_height="370dp"
+    app:cardElevation="3dp"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_margin="6dp">
+        android:layout_margin="6dp"
+        android:weightSum="8">
 
         <TextView
             android:layout_width="match_parent"
@@ -22,14 +22,16 @@
             android:textStyle="bold"
             android:textColor="@color/black"
             android:maxLines="2"
-            android:layout_marginBottom="10dp"></TextView>
+            android:layout_marginBottom="10dp"
+            android:layout_weight="2"></TextView>
 
         <ImageView
             android:id="@+id/img_headline_news_trending"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:src="@drawable/not_available"
-            android:scaleType="center">
+            android:scaleType="center"
+            android:layout_weight="3">
         </ImageView>
 
         <TextView
@@ -37,10 +39,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:maxLines="3"
+            android:maxLines="2"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:textStyle="normal">
+            android:textStyle="normal"
+            android:layout_weight="2">
         </TextView>
 
         <LinearLayout
@@ -48,7 +51,8 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:paddingTop="10dp"
-            android:weightSum="5">
+            android:weightSum="5"
+            android:layout_weight="1">
 
             <LinearLayout
                 android:layout_width="wrap_content"
