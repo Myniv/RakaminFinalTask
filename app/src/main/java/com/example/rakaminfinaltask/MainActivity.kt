@@ -12,39 +12,40 @@ import com.example.rakaminfinaltask.api.ApiClient
 import com.example.rakaminfinaltask.api.models.NewHeadLine
 import com.example.rakaminfinaltask.api.models.NewsApiResponse
 import com.example.rakaminfinaltask.api.adapter.NewsAdapter
+import com.example.rakaminfinaltask.api.adapter.NewsTrendingAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
     private lateinit var swipeRefresh: SwipeRefreshLayout
-    private lateinit var recyclerView: RecyclerView
+    private lateinit var recyclerView_list: RecyclerView
     private lateinit var recyclerView_trending: RecyclerView
     private lateinit var call: Call<NewsApiResponse>
     private lateinit var callTrending: Call<NewsApiResponse>
     private lateinit var newsAdapter: NewsAdapter
-    private lateinit var newsAdapterTrending: NewsAdapter
+    private lateinit var newsTrendingAdapter: NewsTrendingAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         swipeRefresh = findViewById(R.id.refresh_layout)
-        recyclerView = findViewById(R.id.recycle_news_list)
+        recyclerView_list = findViewById(R.id.recycle_news_list)
         recyclerView_trending = findViewById(R.id.recycle_news_trending)
 
 
         newsAdapter = NewsAdapter { news -> newsOnClick(news)  }
-        recyclerView.adapter = newsAdapter
-        recyclerView.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
+        recyclerView_list.adapter = newsAdapter
+        recyclerView_list.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
 
-//        newsAdapterTrending = NewsAdapter { news -> newsOnClick(news)  }
-//        recyclerView_trending.adapter = newsAdapterTrending
-//        recyclerView_trending.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
+        newsTrendingAdapter = NewsTrendingAdapter { news -> newsOnClick(news)  }
+        recyclerView_trending.adapter = newsTrendingAdapter
+        recyclerView_trending.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
 
         swipeRefresh.setOnRefreshListener {
-//            getDataNewsListTrending()
+            getDataNewsListTrending()
             getDataNewsList()
         }
-//        getDataNewsListTrending()
+        getDataNewsListTrending()
         getDataNewsList()
     }
 
@@ -88,8 +89,8 @@ class MainActivity : AppCompatActivity() {
             ) {
                 swipeRefresh.isRefreshing = false
                 if(response.isSuccessful){
-                    newsAdapterTrending.submitList(response.body()?.articles)
-                    newsAdapterTrending.notifyDataSetChanged()
+                    newsTrendingAdapter.submitList(response.body()?.articles)
+                    newsTrendingAdapter.notifyDataSetChanged()
                 }
             }
 

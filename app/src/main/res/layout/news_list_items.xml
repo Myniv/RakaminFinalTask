@@ -110,7 +110,8 @@
                     android:textColor="@color/black"
                     android:textSize="8sp"
                     android:textStyle="normal"
-                    android:gravity="left">
+                    android:gravity="left"
+                    android:maxLength="10">
 
                 </TextView>
 

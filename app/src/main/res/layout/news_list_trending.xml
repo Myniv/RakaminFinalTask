@@ -16,11 +16,116 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/text_title_news_Trending"
+            android:id="@+id/text_title_news_trending"
             android:text="Fresh Bitcoin Hype Shows Crypto Just Can’t Help Itself"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@color/black">
+            android:textColor="@color/black"
+            android:maxLines="2"
+            android:layout_marginBottom="10dp"></TextView>
+
+        <ImageView
+            android:id="@+id/img_headline_news_trending"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/not_available"
+            android:scaleType="center">
+        </ImageView>
+
+        <TextView
+            android:id="@+id/text_description_trending"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:maxLines="3"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="normal">
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:weightSum="5">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="2">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:scaleType="centerCrop"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/baseline_person_24">
+
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/text_author_news_trending"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:maxLines="1"
+                    android:text="Author Name"
+                    android:textColor="@color/black"
+                    android:textSize="8sp"
+                    android:textStyle="normal">
+
+                </TextView>
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="2"
+                android:layout_gravity="right">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/baseline_date_range_24">
+
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/text_date_news_trending"
+                    android:layout_width="41dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:maxLines="1"
+                    android:text="2023-11-18"
+                    android:textColor="@color/black"
+                    android:textSize="8sp"
+                    android:textStyle="normal"
+                    android:gravity="left"
+                    android:maxLength="10">
+                </TextView>
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+        </LinearLayout>
+
 
 
     </LinearLayout>
