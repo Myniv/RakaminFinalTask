@@ -22,8 +22,8 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var swipeRefresh: SwipeRefreshLayout
-    private lateinit var recyclerView_list: RecyclerView
-    private lateinit var recyclerView_trending: RecyclerView
+    private lateinit var recyclerViewList: RecyclerView
+    private lateinit var recyclerViewTrending: RecyclerView
     private lateinit var call: Call<NewsApiResponse>
     private lateinit var callTrending: Call<NewsApiResponse>
     private lateinit var newsAdapter: NewsAdapter
@@ -32,8 +32,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         swipeRefresh = findViewById(R.id.refresh_layout)
-        recyclerView_list = findViewById(R.id.recycle_news_list)
-        recyclerView_trending = findViewById(R.id.recycle_news_trending)
+        recyclerViewList = findViewById(R.id.recycle_news_list)
+        recyclerViewTrending = findViewById(R.id.recycle_news_trending)
 
         val button : Button = findViewById(R.id.btn_profile)
         button.setOnClickListener(this)
@@ -41,12 +41,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
         newsAdapter = NewsAdapter { news -> newsOnClick(news)  }
-        recyclerView_list.adapter = newsAdapter
-        recyclerView_list.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
+        recyclerViewList.adapter = newsAdapter
+        recyclerViewList.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
 
         newsTrendingAdapter = NewsTrendingAdapter { news -> newsOnClick(news)  }
-        recyclerView_trending.adapter = newsTrendingAdapter
-        recyclerView_trending.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
+        recyclerViewTrending.adapter = newsTrendingAdapter
+        recyclerViewTrending.layoutManager = LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
 
         swipeRefresh.setOnRefreshListener {
             getDataNewsListTrending()

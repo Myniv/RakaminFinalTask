@@ -16,9 +16,6 @@
         android:theme="@style/Theme.RakaminFinalTask"
         tools:targetApi="31">
         <activity
-            android:name=".NavBar"
-            android:exported="false" />
-        <activity
             android:name=".AboutPage"
             android:exported="false" />
         <activity
