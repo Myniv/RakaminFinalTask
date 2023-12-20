@@ -56,7 +56,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun newsOnClick(news : NewHeadLine){
-        Toast.makeText(applicationContext, news.description, Toast.LENGTH_SHORT).show()
+        val moveWithDataIntent = Intent(this@MainActivity, DetailPage::class.java)
+        moveWithDataIntent.putExtra(DetailPage.DETAIL_TITLE, news.title)
+        moveWithDataIntent.putExtra(DetailPage.DETAIL_IMG,news.urlToImage)
+        moveWithDataIntent.putExtra(DetailPage.DETAIL_DESC,news.description)
+        moveWithDataIntent.putExtra(DetailPage.DETAIL_CONTENT,news.content)
+        moveWithDataIntent.putExtra(DetailPage.DETAIL_AUTHOR,news.author)
+        moveWithDataIntent.putExtra(DetailPage.DETAIL_DATE,news.publishedAt)
+
+        startActivity(moveWithDataIntent)
     }
 
     private fun getDataNewsList(){

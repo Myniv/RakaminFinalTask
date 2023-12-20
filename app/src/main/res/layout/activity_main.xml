@@ -26,6 +26,7 @@
                 android:layout_marginTop="35dp"
                 android:gravity="center"
                 android:text="HeadLine"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -44,6 +45,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="left"
                 android:text="All News"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -74,16 +76,18 @@
         <ImageButton
             android:id="@+id/btn_home_inmain"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_weight="1"
-            android:src="@drawable/baseline_home_24"/>
+            android:src="@drawable/baseline_home_24"
+            android:background="@drawable/round_corner"/>
 
         <ImageButton
             android:id="@+id/btn_profile_inmain"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_weight="1"
-            android:src="@drawable/baseline_person_24"/>
+            android:src="@drawable/baseline_person_24"
+            android:background="@drawable/round_corner"/>
 
     </LinearLayout>
 
