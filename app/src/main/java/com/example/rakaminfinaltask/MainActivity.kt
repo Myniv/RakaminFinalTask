@@ -114,6 +114,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 val moveIntent = Intent(this@MainActivity, AboutPage::class.java)
                 startActivity(moveIntent)
             }
+            R.id.btn_home_inmain -> {
+                val toast = Toast.makeText(this, "You Already in Home Page", Toast.LENGTH_SHORT) // in Activity
+                toast.show()
+
+//                Toast.makeText(getBaseContext(), "You Already in Home Page", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }
