@@ -126,7 +126,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 val toast = Toast.makeText(this, "You Already in Home Page", Toast.LENGTH_SHORT) // in Activity
                 toast.show()
 
-//                Toast.makeText(getBaseContext(), "You Already in Home Page", Toast.LENGTH_SHORT).show();
             }
         }
     }

@@ -19,13 +19,8 @@ class NewsAdapter(private val onClick: (NewHeadLine) -> Unit) :
         RecyclerView.ViewHolder(itemView){
             val imgHeadLine : ImageView = itemView.findViewById(R.id.img_headline_news_list)
             val txtTitle : TextView = itemView.findViewById(R.id.text_title_news_list)
-//            val txtDesc : TextView = itemView.findViewById(R.id.text_description)
             val txtAuthor : TextView = itemView.findViewById(R.id.text_author_news_list)
             val txtDate : TextView  =itemView.findViewById(R.id.text_date_news_list)
-
-//            val imgHeadLineTrending : ImageView = itemView.findViewById(R.id.img_headline_trending)
-//            val txtTitleTrending : TextView = itemView.findViewById(R.id.text_title_trending)
-//            val txtDescTrending : TextView = itemView.findViewById(R.id.text_description_trending)
 
             var currentNews: NewHeadLine? = null
 
@@ -41,16 +36,10 @@ class NewsAdapter(private val onClick: (NewHeadLine) -> Unit) :
             currentNews = news
 
             txtTitle.text = news.title
-//            txtDesc.text = news.description
             txtAuthor.text = news.author
             txtDate.text = news.publishedAt
 
-//            txtTitleTrending.text = news.title
-//            txtDescTrending.text = news.description
-
             Glide.with(itemView).load(news.urlToImage).centerCrop().into(imgHeadLine)
-//            Glide.with(itemView).load(news.urlToImage).centerCrop().into(imgHeadLineTrending)
-
 
         }
 
