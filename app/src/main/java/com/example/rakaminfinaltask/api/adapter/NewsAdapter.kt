@@ -5,12 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.rakaminfinaltask.R
 import com.example.rakaminfinaltask.api.models.NewHeadLine
+import com.example.rakaminfinaltask.api.services.NewsCallBack
 
 
 class NewsAdapter(private val onClick: (NewHeadLine) -> Unit) :
@@ -66,16 +66,5 @@ class NewsAdapter(private val onClick: (NewHeadLine) -> Unit) :
         holder.bind(news)
     }
 
-
-}
-
-object NewsCallBack : DiffUtil.ItemCallback<NewHeadLine>(){
-    override fun areItemsTheSame(oldItem: NewHeadLine, newItem: NewHeadLine): Boolean {
-        return oldItem == newItem
-    }
-
-    override fun areContentsTheSame(oldItem: NewHeadLine, newItem: NewHeadLine): Boolean {
-        return oldItem.source?.id == newItem.source?.id
-    }
 
 }
