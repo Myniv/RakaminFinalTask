@@ -129,15 +129,9 @@
                         android:gravity="left"
                         android:maxLength="10">
                     </TextView>
-
                 </LinearLayout>
-
-
             </LinearLayout>
-
         </LinearLayout>
-
-
     </ScrollView>
 
 

@@ -36,20 +36,13 @@ class DetailPage : AppCompatActivity(), View.OnClickListener {
         val txtAuthorDetailShowed: TextView = findViewById(R.id.text_author_detail)
         val txtDateDetailShowed: TextView = findViewById(R.id.text_date_detail)
 
-        val txtTitleDetailReceived = intent.getStringExtra(DETAIL_TITLE)
-        val imgImgDetailReceived = intent.getStringExtra(DETAIL_IMG)
-        val txtDescDetailReceived = intent.getStringExtra(DETAIL_DESC)
-        val txtContentDetailReceived = intent.getStringExtra(DETAIL_CONTENT)
-        val txtAuthorDetailReceived = intent.getStringExtra(DETAIL_AUTHOR)
-        val txtDateDetailReceived = intent.getStringExtra(DETAIL_DATE)
+        txtTitleDetailShowed.text = intent.getStringExtra(DETAIL_TITLE)
+        txtDescDetailShowed.text = intent.getStringExtra(DETAIL_DESC)
+        txtContentDetailShowed.text = intent.getStringExtra(DETAIL_CONTENT)
+        txtAuthorDetailShowed.text = intent.getStringExtra(DETAIL_AUTHOR)
+        txtDateDetailShowed.text = intent.getStringExtra(DETAIL_DATE)
 
-        txtTitleDetailShowed.text = txtTitleDetailReceived
-        txtDescDetailShowed.text = txtDescDetailReceived
-        txtContentDetailShowed.text = txtContentDetailReceived
-        txtAuthorDetailShowed.text = txtAuthorDetailReceived
-        txtDateDetailShowed.text = txtDateDetailReceived
-
-        Glide.with(this).load(imgImgDetailReceived).centerCrop().into(imgImgDetailShowed)
+        Glide.with(this).load(intent.getStringExtra(DETAIL_IMG)).centerCrop().into(imgImgDetailShowed)
 
     }
 

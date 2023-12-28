@@ -49,9 +49,6 @@
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
-
-
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycle_news_list"
                 android:layout_width="match_parent"
@@ -88,7 +85,6 @@
             android:layout_weight="1"
             android:src="@drawable/baseline_person_24"
             android:background="@drawable/round_corner"/>
-
     </LinearLayout>
 
 
